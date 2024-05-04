@@ -1,5 +1,7 @@
 ﻿using Dal.User.Interfaces;
+using Dal.User.Models;
 using Microsoft.AspNetCore.Mvc;
+using MySocialNetworkApi.Models.User.Requests;
 
 namespace MySocialNetworkApi.Controllers
 {
@@ -17,9 +19,19 @@ namespace MySocialNetworkApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateNewUser()
+        [Route("/user")]
+        public IActionResult CreateNewUser([FromBody] CreateUserRequest dto)
         {
-
+            var id = _userRepository.CreateUser(new UserDal
+            {
+                Login = dto.Login,
+                Password = dto.Password,
+                FirstName = dto.FirstName,
+                LastName = dto.LastName,
+                City = dto.City,
+                Address = dto.Address,
+            });
+            return Ok(id);
         }
     }
 }
