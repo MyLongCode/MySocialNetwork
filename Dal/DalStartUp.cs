@@ -1,9 +1,9 @@
-﻿
+﻿using Dal.User;
 using Dal.User.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace Logic
+namespace Dal
 {
     public static class DalStartUp
     {

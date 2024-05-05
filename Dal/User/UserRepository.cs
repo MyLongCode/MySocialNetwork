@@ -1,12 +1,13 @@
 ﻿using Dal.EF;
+using Dal.User.Interfaces;
 using Dal.User.Models;
 
-namespace Dal.User.Interfaces
+namespace Dal.User
 {
     public class UserRepository : IUserRepository
     {
         private ApplicationDbContext db;
-        public UserRepository(ApplicationDbContext context) => this.db = context;
+        public UserRepository(ApplicationDbContext context) => db = context;
         public int CreateUser(UserDal user)
         {
             db.Users.Add(user);

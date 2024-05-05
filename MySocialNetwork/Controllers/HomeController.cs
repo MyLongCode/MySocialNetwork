@@ -2,7 +2,7 @@
 using MySocialNetwork.Models;
 using System.Diagnostics;
 
-namespace MySocialNetwork.Controllers
+namespace MySocialNetworkApi.Controllers
 {
     public class HomeController : Controller
     {
