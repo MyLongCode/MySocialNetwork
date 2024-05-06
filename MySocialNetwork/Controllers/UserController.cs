@@ -18,9 +18,17 @@ namespace MySocialNetworkApi.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("/user")]
+        public IActionResult GetAllUsers()
+        {
+            var users = _userRepository.GetAllUsers();
+            return Ok(users);
+        }
+
         [HttpPost]
         [Route("/user")]
-        public IActionResult CreateNewUser([FromBody] CreateUserRequest dto)
+        public IActionResult CreateNewUser(CreateUserRequest dto)
         {
             var id = _userRepository.CreateUser(new UserDal
             {
