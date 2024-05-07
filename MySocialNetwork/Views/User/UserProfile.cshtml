@@ -39,11 +39,11 @@
 </head>
 <body>
     <div class="profile-container">
-        <img src="@Model.Avatar" alt="Profile Picture" class="profile-avatar">
+        <img src="~/Files/@Model.Avatar" alt="Фотография пользователя" class="profile-avatar">
         <div class="profile-info">
             <h2>@Model.FirstName @Model.LastName</h2>
             <p>@Model.Status</p>
-            <p>Location: @Model.Address</p>
+            <p>Адресс: @Model.Address</p>
         </div>
     </div>
 </body>

@@ -30,9 +30,10 @@ namespace Dal.User
             return db.Users.ToArray();
         }
 
-        public UserDal GetUserById(int id)
+        public UserDal GetUserById(int userId)
         {
-            return db.Users.FirstOrDefault(u => u.Id == id);
+            var user = db.Users.FirstOrDefault(u => u.Id == userId);
+            return user;
         }
 
         public void UpdateUser(UserDal user)
