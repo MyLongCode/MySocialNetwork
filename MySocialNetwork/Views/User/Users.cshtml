@@ -1,0 +1,6 @@
+﻿@using MySocialNetworkApi.Models.User;
+@model IEnumerable<User>;
+
+@foreach(var item in Model){
+	<p>@item.FirstName</p>
+}

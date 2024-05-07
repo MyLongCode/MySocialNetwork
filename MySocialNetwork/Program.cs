@@ -1,6 +1,8 @@
 using Dal;
 using Dal.EF;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,11 +18,17 @@ builder.Services.TryAddDal();
 
 var app = builder.Build();
 
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+            Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Files")),
+    RequestPath = "/Files"
+});
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 
 app.UseRouting();
+//app.UseCookiePolicy();
 
 app.UseAuthentication();
 app.UseAuthorization();
