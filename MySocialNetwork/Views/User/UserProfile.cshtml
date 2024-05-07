@@ -1,0 +1,50 @@
+﻿@using MySocialNetworkApi.Models.User;
+@model User;
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .profile-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .profile-info {
+            margin-top: 20px;
+        }
+        .profile-info h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .profile-info p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <img src="@Model.Avatar" alt="Profile Picture" class="profile-avatar">
+        <div class="profile-info">
+            <h2>@Model.FirstName @Model.LastName</h2>
+            <p>@Model.Status</p>
+            <p>Location: @Model.Address</p>
+        </div>
+    </div>
+</body>
+</html>

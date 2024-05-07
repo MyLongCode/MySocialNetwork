@@ -30,6 +30,11 @@ namespace Dal.User
             return db.Users.ToArray();
         }
 
+        public UserDal GetUserById(int id)
+        {
+            return db.Users.FirstOrDefault(u => u.Id == id);
+        }
+
         public void UpdateUser(UserDal user)
         {
             throw new NotImplementedException();

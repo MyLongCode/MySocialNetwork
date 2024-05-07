@@ -33,6 +33,20 @@ namespace MySocialNetworkApi.Controllers
             return View("Users", users);
         }
 
+        [HttpGet]
+        [Route("/user/{id}")]
+        public IActionResult GetUserInfo(int id)
+        {
+            var userDal = _userRepository.GetUserById(id);
+            return View("UserProfile", new User {
+                FirstName = userDal.FirstName,
+                LastName = userDal.LastName,
+                City = userDal.City,
+                Address = userDal.Address,
+                Avatar = userDal.Avatar,
+            });
+        }
+
         [HttpPost]
         [Route("/user")]
         public IActionResult CreateNewUser(CreateUserRequest dto)
