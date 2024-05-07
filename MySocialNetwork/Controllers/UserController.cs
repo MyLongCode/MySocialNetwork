@@ -1,6 +1,7 @@
 ﻿using Dal.User.Interfaces;
 using Dal.User.Models;
 using Microsoft.AspNetCore.Mvc;
+using MySocialNetworkApi.Models.User;
 using MySocialNetworkApi.Models.User.Requests;
 
 namespace MySocialNetworkApi.Controllers
@@ -22,8 +23,14 @@ namespace MySocialNetworkApi.Controllers
         [Route("/user")]
         public IActionResult GetAllUsers()
         {
-            var users = _userRepository.GetAllUsers();
-            return Ok(users);
+            var users = _userRepository.GetAllUsers().Select(u => new User { 
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                City = u.City,
+                Address = u.Address,
+                Avatar = u.Avatar,
+            });
+            return View("Users", users);
         }
 
         [HttpPost]
