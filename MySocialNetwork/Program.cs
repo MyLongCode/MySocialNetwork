@@ -24,7 +24,6 @@ app.UseStaticFiles(new StaticFileOptions
             Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Files")),
     RequestPath = "/Files"
 });
-
 app.UseHttpsRedirection();
 
 app.UseRouting();
