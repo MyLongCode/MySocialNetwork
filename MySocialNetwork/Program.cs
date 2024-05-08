@@ -22,9 +22,8 @@ app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
             Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Files")),
-    RequestPath = "/Files"
+    RequestPath = "/wwwroot"
 });
-
 app.UseHttpsRedirection();
 
 app.UseRouting();
