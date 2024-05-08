@@ -22,7 +22,7 @@ app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
             Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Files")),
-    RequestPath = "/wwwroot"
+    RequestPath = "/Files"
 });
 app.UseHttpsRedirection();
 
