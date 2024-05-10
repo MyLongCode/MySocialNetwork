@@ -1,6 +1,15 @@
 ﻿@using MySocialNetworkApi.Models.User;
 @model IEnumerable<User>;
 
-@foreach(var item in Model){
-	<p>@item.FirstName</p>
-}
+<h1 style="color: #333; text-align: center; margin-top: 20px;">Список пользователей проекта</h1>
+
+<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; margin: 20px;">
+    @foreach (var user in Model)
+    {
+            <div style="border: 1px solid #f0f0f0; border-radius: 5px; padding: 10px; margin: 10px; width: 200px; background-color: #f9f9f9;">
+                    <img src="~/Files/@user.Avatar" alt="Фотография пользователя" style="border-radius: 50%; object-fit: cover; width: 100px; height: 100px;">
+                <p style="font-weight: bold; font-size: 18px;">@user.FirstName</p>
+                <p style="color: #666;">Email: @user.LastName</p>
+            </div>
+    }
+</div>
